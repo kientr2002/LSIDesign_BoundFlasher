@@ -10,7 +10,7 @@ localparam [3:0] STATE_START = 4'd0;
 localparam [3:0] STATE_UP_1_5 = 4'd1;
 localparam [3:0] STATE_DOWN_4_0 = 4'd2;
 localparam [3:0] STATE_UP_1_10 = 4'd3;
-localparam [3:0] STATE_DOWN_9_5 = 4'd3;
+localparam [3:0] STATE_DOWN_9_5 = 4'd4;
 localparam [3:0] STATE_UP_6_15 = 4'd5;
 localparam [3:0] STATE_DOWN_14_1 = 4'd6;
 localparam [3:0] STATE_3_RESET_9_0 = 4'd7;
@@ -31,7 +31,7 @@ always @(posedge clk) begin
 end
 
 // next state determination
-always @(flick, counter_val) begin
+always @(*) begin
     next_state = current_state;
 
     case (current_state)
@@ -52,10 +52,8 @@ always @(flick, counter_val) begin
                 else if (counter_val == 4'd10)
                     next_state = STATE_3_RESET_9_0;
             end
-            else begin
-                if (counter_val == 4'd10)
-                    next_state = STATE_DOWN_9_5;
-            end
+            else if (counter_val == 4'd10)
+                next_state = STATE_DOWN_9_5;
         end
         STATE_3_RESET_4_0:
             if (counter_val == 4'd0)
@@ -105,15 +103,17 @@ always @(flick, counter_val) begin
 end
 
 // output for each state
-always @(next_state, counter_val) begin
+always @(*) begin
     enable = 1'b0;
     upcount = 1'b0;
 
     case (next_state)
         STATE_START:
         begin
-            enable = 1'b1;
-            upcount = 1'b1;
+            if (current_state == STATE_START)
+                enable = 1'b0;
+            else enable = 1'b1;
+            upcount = 1'b0;
         end
         STATE_UP_1_5:
         begin
