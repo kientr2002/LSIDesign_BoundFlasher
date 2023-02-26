@@ -1,0 +1,5 @@
+# use for local module listing within icarus verilog
+module_list.txt
+
+# output file for local sim
+local_test/
