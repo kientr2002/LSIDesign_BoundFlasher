@@ -16,12 +16,12 @@ UpDownCounter counter (
 FSM control_fsm (
     .clk(clk), .reset_n(reset_n), .flick(flick), .counter_val(counter_val),
     .enable(enable), .upcount(upcount)
-)
+);
 
 always @(counter_val) begin
     case (counter_val)
         4'd0:
-            light = {0{1'd1}};
+            light = 0;
         4'd1:
             light = {1{1'd1}};
         4'd2:
