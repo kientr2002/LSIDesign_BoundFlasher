@@ -3,7 +3,7 @@ module UpDownCounter_tb;
     reg reset_n;
     reg upcount;
     reg enable;
-    wire [3:0] out;
+    wire [4:0] out;
     
     // instantiate UUT
     UpDownCounter UUT (

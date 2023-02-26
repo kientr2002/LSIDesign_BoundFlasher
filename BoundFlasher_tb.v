@@ -14,17 +14,21 @@ module BoundFlasher_tb;
     always #1 clk = !clk;
 
     initial begin
+        // reset the damn thing
         clk <= 0;
         reset_n <= 0;
         flick <= 0;
         #4;
 
+        // start counting normally for a cycle (no reset state)
         reset_n <= 1;
         flick <= 1;
         #2;
         flick <= 0;
         #106;
 
+        // test reset state from STATE_UP_1_10
+        // setting the internal node to correct value for quick testing
         UUT.counter.out = 4;
         UUT.control_fsm.current_state = UUT.control_fsm.STATE_UP_1_10;
         flick = 1;
@@ -36,6 +40,8 @@ module BoundFlasher_tb;
         flick = 0;
         #20;
 
+        // test reset state from STATE_UP_6_16 and STATE_DOWN_9_5
+        // setting the internal node to correct value for quick testing
         UUT.counter.out = 6;
         UUT.control_fsm.current_state = UUT.control_fsm.STATE_DOWN_9_5;
         flick = 1;
