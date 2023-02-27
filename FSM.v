@@ -21,7 +21,7 @@ localparam [3:0] STATE_5_RESET_5_5 = 4'd10;
 reg [3:0] current_state, next_state;
 
 // change state on clock edge
-always @(posedge clk) begin
+always @(posedge clk or negedge reset_n) begin
     if (!reset_n) begin
         current_state <= STATE_START;
     end
