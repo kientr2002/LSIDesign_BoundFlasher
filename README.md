@@ -35,32 +35,32 @@ input, this is a Mealy state machine.
 
 The machine have 11 state, listed:
 
-- STATE_START: Starting state of the machine
+- `STATE_START`: Starting state of the machine
 
-- STATE_UP_1_5: Stage 1 of the machine
+- `STATE_UP_1_5`: Stage 1 of the machine
 
-- STATE_DOWN_4_0: Stage 2 of the machine
+- `STATE_DOWN_4_0`: Stage 2 of the machine
 
-- STATE_UP_1_10: State 3 of the machine
+- `STATE_UP_1_10`: State 3 of the machine
 
-- STATE_DOWN_9_5: State 4 of the machine
+- `STATE_DOWN_9_5`: State 4 of the machine
 
-- STATE_UP_6_16: State 5 of the machine
+- `STATE_UP_6_16`: State 5 of the machine
 
-- STATE_DOWN_15_1: State 6 of the machine
+- `STATE_DOWN_15_1`: State 6 of the machine
 
-- STATE_3_RESET_9_0: Entered at the 10th light kickback point within stage 3, if flick=1
+- `STATE_3_RESET_9_0`: Entered at the 10th light kickback point within stage 3, if flick=1
 
-- STATE_3_RESET_4_0 : Entered at the 5thlight kickback point within stage 3, if flick=1
+- `STATE_3_RESET_4_0` : Entered at the 5thlight kickback point within stage 3, if flick=1
 
-- STATE_5_RESET_9_5 : Entered at the 10th light kickback point within stage 5, if flick=1
+- `STATE_5_RESET_9_5` : Entered at the 10th light kickback point within stage 5, if flick=1
 
-- STATE_5_RESET_5_5 : Entered at the 5th light kickback point within stage 5, if flick=1
+- `STATE_5_RESET_5_5` : Entered at the 5th light kickback point within stage 5, if flick=1
 
 With 2 variable:
 
 - flick (from input `flick`)
-- counter (from input 'counter_val')
+- counter (from input `counter_val`)
 
 ## Simulation
 
