@@ -14,7 +14,7 @@ module BoundFlasher_tb;
     always #1 clk = !clk;
 
     initial begin
-        // reset the damn thing
+        // reset the thing
         clk <= 0;
         reset_n <= 0;
         flick <= 0;
