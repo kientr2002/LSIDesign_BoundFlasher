@@ -1,7 +1,7 @@
 module UpDownCounter
 (
     input clk, reset_n, upcount, enable,
-    output reg [5:0] out
+    output reg [4:0] out
 );
 
     always @(posedge clk or negedge reset_n) begin
